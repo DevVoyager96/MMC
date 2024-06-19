@@ -1,12 +1,32 @@
-let numero1
-let numero2
-process.stidin.on("data", function(data) {
-  let input = +data.toString().trim()
+let numero1;
+let numero2;
+let resultados = 0;
 
-  if(!numero1) {
+console.log("Digite 2 números que deseja calcular o seu mmc: ");
+process.stdin.on("data", function (data) {
+  let input = +data.toString().trim();
 
-    numero1 = input
+  if (!numero1) {
+    numero1 = input;
+    let i;
+    let maior;
   } else {
-    numero2 = input
+    numero2 = input;
+    let i;
+
+    if (numero1 > numero2) {
+      i = numero1;
+    } else {
+      i = numero2;
+      maior = numero2;
+    }
+    for (i; i <= numero1 * numero2; i++) {
+      console.log(i);
+      if (i % numero1 == 0 && i % numero2 == 0) {
+        console.log("MMC: " + i);
+        break;
+      }
+    }
+    process.exit();
   }
-})
+});
